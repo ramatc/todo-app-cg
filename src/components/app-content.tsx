@@ -22,7 +22,7 @@ const AppContent = () => {
           Todo App | Consultoría {""}
           <Typography
             component="span"
-            sx={{ fontSize: "2rem", color: "#498bb7" }}
+            sx={{ fontSize: "2rem", color: "#498bb7", fontWeight: "bold" }}
           >
             Global
           </Typography>
@@ -35,7 +35,7 @@ const AppContent = () => {
           sx={{ pt: 2, fontSize: 18 }}
           justifyContent="space-between"
         >
-          <Typography alignSelf="center">
+          <Typography alignSelf="center" aria-label="pendingTasks">
             Tareas pendientes: {pendingTasks}
           </Typography>
 
@@ -43,6 +43,7 @@ const AppContent = () => {
             variant="outlined"
             onClick={handleRemoveAllCompleted}
             disabled={todos.length <= 0}
+            aria-label="btnRemoveAllCompleted"
           >
             Borrar completadas
           </Button>

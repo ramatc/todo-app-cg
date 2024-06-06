@@ -16,14 +16,19 @@ const TodoItem = ({ todo }: { todo: Todo }) => {
       <ListItem disablePadding key={todo.id} className="fade-in">
         <ListItemButton
           onClick={() => handleCompleted(todo.id, todo.completed)}
+          aria-label="todoButton"
         >
           <ListItemText
             primary={todo.task}
             className={`${todo.completed ? "completed" : ""}`}
+            aria-label="todoText"
           />
         </ListItemButton>
         <Divider orientation="vertical" flexItem />
-        <IconButton aria-label="delete" onClick={() => handleRemove(todo.id)}>
+        <IconButton
+          aria-label="removeButton"
+          onClick={() => handleRemove(todo.id)}
+        >
           <DeleteIcon />
         </IconButton>
       </ListItem>

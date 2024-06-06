@@ -8,7 +8,7 @@ const TodoList = () => {
   const { todos } = useTodoContext();
 
   return (
-    <Box sx={{ width: "100%", maxWidth: 1200 }}>
+    <Box sx={{ width: "100%", maxWidth: 1200 }} aria-label="todoList">
       <List
         sx={{
           p: 0,
