@@ -1,25 +1,44 @@
-import React, { useState } from "react";
+import TextField from "@mui/material/TextField";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import { useState } from "react";
 
-const CreateTodo = ({ handleAdd }) => {
+import { useTodoContext } from "../context/TodoContextProvider";
+
+const CreateTodo = () => {
+  const { handleAdd } = useTodoContext();
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    handleAdd(inputValue);
+    if (inputValue) handleAdd(inputValue);
     setInputValue("");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <Stack
+      direction="row"
+      spacing={1}
+      component="form"
+      onSubmit={handleSubmit}
+      sx={{ my: 3 }}
+    >
+      <TextField
+        label="Ingrese una tarea"
+        color="primary"
+        focused
         value={inputValue}
-        placeholder="Ingresa una tarea"
         autoFocus
         onChange={(e) => {
           setInputValue(e.target.value);
         }}
-      ></input>
-    </form>
+        required
+        fullWidth
+      />
+      <Button variant="contained" color="primary" type="submit">
+        Agregar
+      </Button>
+    </Stack>
   );
 };
 

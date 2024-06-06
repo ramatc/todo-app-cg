@@ -10,21 +10,9 @@ body {
   overflow-x: hidden;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-p {
-  max-width: 65ch;
-}
-
 .completed {
   text-decoration: line-through;
+  opacity: 0.5;
 }
 
 @keyframes fadeIn {
@@ -38,10 +26,4 @@ p {
 
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	html {
-		scroll-behavior: auto;
-	}
 }

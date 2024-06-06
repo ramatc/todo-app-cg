@@ -1,28 +1,27 @@
-import { Stack } from "@mui/material";
-// import TodoItem from "./todo-item";
-import { type Todo as TodoType } from "../types";
+import Box from "@mui/material/Box";
+import List from "@mui/material/List";
 
-const TodoList = ({
-  todos,
-  handleRemove,
-  handleCompleted,
-}: {
-  todos: TodoType[];
-  handleRemove: (id: string) => void;
-  handleCompleted: (id: string, completed: boolean) => void;
-}) => {
+import TodoItem from "./todo-item";
+import { useTodoContext } from "../context/TodoContextProvider";
+
+const TodoList = () => {
+  const { todos } = useTodoContext();
+
   return (
-    <Stack direction="column" gap={2} component="ul">
-      {todos.map((todo) => (
-        <li key={todo.id} className={`${todo.completed ? "completed" : ""}`}>
-          {todo.task}
-          <button onClick={() => handleRemove(todo.id)}>Borrar</button>
-          <button onClick={() => handleCompleted(todo.id, todo.completed)}>
-            Completar
-          </button>
-        </li>
-      ))}
-    </Stack>
+    <Box sx={{ width: "100%", maxWidth: 1200 }}>
+      <List
+        sx={{
+          p: 0,
+          borderRadius: 2,
+          border: "1px solid",
+          borderColor: "divider",
+        }}
+      >
+        {todos.map((todo) => (
+          <TodoItem todo={todo} key={todo.id} />
+        ))}
+      </List>
+    </Box>
   );
 };
 
