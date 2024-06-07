@@ -32,10 +32,19 @@ const AppContent = () => {
         <Stack
           direction="row"
           gap={2}
-          sx={{ pt: 2, fontSize: 18 }}
+          sx={{
+            pt: 2,
+            fontSize: 18,
+          }}
           justifyContent="space-between"
         >
-          <Typography alignSelf="center" aria-label="pendingTasks">
+          <Typography
+            alignSelf="center"
+            aria-label="pendingTasks"
+            sx={{
+              fontSize: { xs: "0.875rem", sm: "1rem" },
+            }}
+          >
             Tareas pendientes: {pendingTasks}
           </Typography>
 
@@ -44,6 +53,11 @@ const AppContent = () => {
             onClick={handleRemoveAllCompleted}
             disabled={todos.length <= 0}
             aria-label="btnRemoveAllCompleted"
+            sx={{
+              fontSize: { xs: "0.75rem", sm: "0.875rem" },
+              padding: { xs: "6px 12px", sm: "5px 15px" },
+              width: { xs: "40%", sm: "auto" },
+            }}
           >
             Borrar completadas
           </Button>
